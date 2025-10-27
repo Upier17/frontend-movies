@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo de Películas</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background-image: url('https://wallpaperaccess.com/full/329583.jpg');
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+      color: #fff;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 50px auto;
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: start;
+      background-color: rgba(20, 20, 20, 0.8);
+      padding: 15px 30px;
+      border-bottom: 2px solid #ff4b2b;
+    }
+
+    header img {
+      height: 60px;
+      margin-right: 20px;
+    }
+
+    header h1 {
+      color: #ff4b2b;
+      font-size: 1.8rem;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.8);
+      border-top: 2px solid #ff4b2b;
+      font-size: 0.9rem;
+    }
+
+    a.video-link {
+      display: block;
+      text-align: center;
+      margin: 20px 0;
+      color: #ffb347;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    a.video-link:hover {
+      color: #fff;
+    }
+
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .table th, .table td {
+      padding: 10px;
+      border-bottom: 1px solid #444;
+    }
+
+    .table th {
+      background-color: #222;
+    }
+
+    .btn {
+      border: none;
+      padding: 6px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .btn-success {
+      background-color: #28a745;
+      color: white;
+    }
+
+    .btn-warning {
+      background-color: #ffc107;
+      color: black;
+    }
+  </style>
+</head>
+<body>
+
+<div class="site-container">
+
+  <header>
+    <img src="https://cdn-icons-png.flaticon.com/512/744/744922.png" alt="Logo del sitio">
+    <h1>Catálogo de Películas 🎬</h1>
+  </header>
+
+  <div class="container mt-4">
+
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h2 class="text-center mb-0">🎬 Lista de Películas</h2>
+      <a routerLink="/add-movie" class="btn btn-success">➕ Agregar Película</a>
+    </div>
+
+    <div *ngIf="movies.length === 0" class="text-center text-muted">
+      <p>No hay películas registradas.</p>
+    </div>
+
+    <div *ngIf="movies.length > 0">
+      <table class="table table-dark table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Título</th>
+            <th>Año</th>
+            <th>Sinopsis</th>
+            <th>Editar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let movie of movies">
+            <td>{{ movie.id }}</td>
+            <td>
+              <a [routerLink]="['/movie', movie.id]" class="text-light text-decoration-none">
+                {{ movie.title }}
+              </a>
+            </td>
+            <td>{{ movie.year }}</td>
+            <td>{{ movie.synopsis }}</td>
+            <td>
+              <button [routerLink]="['/edit-movie', movie.id]" class="btn btn-sm btn-warning">
+                Editar
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <a href="https://youtu.be/6ZfuNTqbHE8?si=0qtATQ-M9C1lCaDq" target="_blank" class="video-link">
+      🎥 Ver tráiler en streaming
+    </a>
+
+  </div>
+
+  <footer>
+    <p>Conceptualización de entornos de desarrollo de aplicaciones y servicios</p>
+    <p>Nombre: Alexander Leon</p>
+    <p>Código: 223983605 </p>
+    <p>Correo: mitchell.leon8360@alumnos.udg.mx</p>
+  </footer>
+
+</div>
+
+</body>
+</html>

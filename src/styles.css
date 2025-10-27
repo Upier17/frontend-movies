@@ -1,0 +1,16 @@
+body {
+  background-color: #121212;
+  color: #f8f9fa;
+  font-family: 'Poppins', sans-serif;
+}
+
+h2 {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.table {
+  background-color: #1f1f1f;
+  border-radius: 10px;
+  overflow: hidden;
+}

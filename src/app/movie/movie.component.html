@@ -1,0 +1,10 @@
+<div class="movie-detail" *ngIf="movie; else noMovie">
+  <h2>{{ movie.title }}</h2>
+  <img [src]="movie.cover" alt="{{ movie.title }}" class="movie-cover" />
+  <p><strong>Año:</strong> {{ movie.year }}</p>
+  <p><strong>Sinopsis:</strong> {{ movie.synopsis }}</p>
+</div>
+
+<ng-template #noMovie>
+  <p>La película no fue encontrada</p>
+</ng-template>
