@@ -1,0 +1,6 @@
+{
+  "root": "dist/movies-frontend",
+  "routes": {
+    "/**": "index.html"
+  }
+}
